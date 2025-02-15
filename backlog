@@ -1,0 +1,96 @@
+Backlog do Projeto – Recette
+
+Site (HTML + CSS + Django API)
+
+
+
+Fase 1 – Configuração Inicial
+
+
+
+✅ 1. Criar repositório no GitHub/GitLab
+
+Criar um repositório privado ou público para organizar o código-fonte.
+
+
+✅ 2. Configurar ambiente
+
+Instalar Django e PostgreSQL.
+Criar um projeto Django e configurar o banco de dados.
+
+
+✅ 3. Configurar autenticação com Django Allauth
+
+Implementar login/cadastro usando Django Allauth.
+
+
+✅ 4. Criar modelos do banco de dados no Django
+
+Usuários (nome, e-mail, senha, foto de perfil).
+Receitas (nome, descrição, ingredientes, modo de preparo, autor, imagem, avaliações).
+Ingredientes (nome, categoria).
+Avaliações (usuário, nota, comentário).
+Lista de compras (usuário, itens adicionados).
+
+
+Fase 2 – Desenvolvimento do Backend (Django API)
+
+
+✅ 5. Criar API no Django Rest Framework (DRF)
+
+Criar endpoints para login/cadastro.
+Criar CRUD de receitas (adicionar, editar, excluir, listar).
+Criar CRUD de ingredientes.
+Criar CRUD de listas de compras.
+
+
+✅ 6. Conectar API ao banco de dados PostgreSQL
+
+Criar migrações e testar conexões.
+
+
+✅ 7. Criar endpoint para comunicação com a IA da Grok
+
+Criar um endpoint que receba ingredientes do usuário e envie para a API da Grok.
+Processar e armazenar receitas geradas pela IA.
+
+
+Fase 3 – Desenvolvimento do Frontend (HTML + CSS puro)
+
+
+✅ 8. Criar estrutura de páginas
+
+Criar páginas HTML para:
+Página inicial.
+Tela de login/cadastro.
+Página de listagem de receitas.
+Página de detalhes de uma receita.
+
+
+✅ 9. Estilizar com CSS puro
+
+Criar um design simples, responsivo e funcional.
+
+
+✅ 10. Conectar páginas ao backend
+
+Usar Django templates para exibir as receitas dinâmicas.
+
+
+✅ 11. Criar formulário para adicionar receitas
+
+Permitir que o usuário insira nome, ingredientes, modo de preparo e foto.
+
+
+✅ 12. Criar interface para interação com a IA da Grok
+
+Adicionar um campo para inserir ingredientes e obter receitas geradas pela IA.
+
+
+Fase 4 – Melhorias e Funcionalidades Extras
+
+
+🔲 13. Permitir upload de fotos nas receitas
+🔲 14. Criar sistema de avaliação de receitas (notas/comentários)
+🔲 15. Implementar filtros de pesquisa (ingredientes, tempo de preparo, avaliações)
+🔲 16. Melhorar UI/UX do sit
