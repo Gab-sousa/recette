@@ -10,13 +10,13 @@ Fase 1 – Configuração Inicial
 
 ✅ 1. Criar repositório no GitHub/GitLab
 
-Criar um repositório privado ou público para organizar o código-fonte.
+Criar um repositório privado ou público para organizar o código-fonte. ✅
 
 
 ✅ 2. Configurar ambiente
 
-Instalar Django e PostgreSQL.
-Criar um projeto Django e configurar o banco de dados.
+Instalar Django e PostgreSQL. ✅
+Criar um projeto Django e configurar o banco de dados. 
 
 
 ✅ 3. Configurar autenticação com Django Allauth
@@ -61,7 +61,7 @@ Fase 3 – Desenvolvimento do Frontend (HTML + CSS puro)
 ✅ 8. Criar estrutura de páginas
 
 Criar páginas HTML para:
-Página inicial.
+Página inicial. 
 Tela de login/cadastro.
 Página de listagem de receitas.
 Página de detalhes de uma receita.
