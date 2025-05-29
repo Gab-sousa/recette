@@ -1,0 +1,80 @@
+{% load i18n %}
+{% load allauth account %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block head_title %}{% endblock head_title %} - Recette</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#FFFAF8] min-h-screen flex flex-col">
+
+    <!-- HEADER -->
+    <header class="w-full flex justify-between items-center p-4 bg-[#FFFAF8]">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+            <img src="" alt="Logo Recette" class="h-8"> <!-- Ajuste a logo -->
+        </div>
+
+        <!-- Links -->
+        <nav class="hidden md:flex space-x-8 text-sm text-gray-700 font-medium">
+            <a href="" class="hover:text-gray-900">Receitas</a>
+            <a href="" class="hover:text-gray-900">Sobre</a>
+        </nav>
+
+        <!-- Botões -->
+        <div class="flex space-x-4">
+            <a href="{% url 'account_signup' %}"
+                class="bg-white text-[#D18667] hover:text-[#c17658] border border-[#D18667] hover:border-[#c17658] font-semibold py-1 px-4 rounded-md shadow-sm">
+                Cadastrar
+            </a>
+            <a href="{% url 'account_login' %}"
+                class="bg-[#D18667] hover:bg-[#c17658] text-white font-semibold py-1 px-4 rounded-md shadow-sm">
+                Login
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    {% block content %}
+    <div class="min-h-screen flex flex-col justify-between bg-[#FFFAF8]">
+
+        <main class="flex items-center justify-center flex-1">
+            <div class="bg-[#FCFAF8] p-10 rounded-2xl shadow-md w-full max-w-md text-center">
+
+                <h1 class="text-2xl font-bold mb-6">Sair</h1>
+
+                <p class="text-gray-600 mb-6">Você tem certeza que deseja sair?</p>
+
+                {% url 'account_logout' as logout_url %}
+                <form method="post" action="{{ logout_url }}" class="space-y-4">
+                    {% csrf_token %}
+                    {{ redirect_field }}
+                    <button type="submit"
+                        class="w-full bg-[#D18667] hover:bg-[#c17658] text-white font-semibold py-2 rounded-md">
+                        Sair
+                    </button>
+                </form>
+
+            </div>
+        </main>
+
+    </div>
+    {% endblock content %}
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white text-xs text-center py-6">
+        <div class="flex justify-center items-center space-x-8 mb-4">
+            <a href="" class="hover:underline">Home</a>
+            <a href="" class="hover:underline">Receitas</a>
+            <a href="" class="hover:underline">Sobre</a>
+        </div>
+        <div class="text-gray-400">COPYRIGHT © 2023 RECETTE.</div>
+    </footer>
+
+</body>
+
+</html>

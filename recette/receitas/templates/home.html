@@ -1,0 +1,121 @@
+{% load i18n %}
+{% load allauth account %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recette</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          lora: ['Lora', 'serif'],
+        }
+      }
+    }
+  }
+</script>
+
+
+</head>
+<body class="bg-white relative overflow-hidden">
+  <!-- Wrapper para centralizar e limitar largura -->
+  <div class="max-w-[1440px] mx-auto">
+
+    <!-- SVG decorativo de fundo -->
+    <div class="hidden md:block absolute top-0 right-0 -z-10 w-[70%] sm:w-[65%] md:w-[60%] lg:w-[60%] xl:w-[59%] 2xl:w-[59%] max-w-[1000px]">
+      <svg viewBox="0 0 990 963" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+        <path d="M991.249 819.567C991.249 819.567 1005.09 815.266 1005.09 377.811C1005.09 126.306 1005.09 32.3765 1005.09 -104.155C853.156 -104.155 386.325 -104.159 71.3769 -104.157C-110.963 -104.156 78.5282 160.325 399.326 377.811C445.668 409.229 466.814 463.655 527.821 621.997C596.806 801.046 993.354 1003.77 1041.77 943.774C1090.19 883.776 991.248 1041.33 991.249 906.933C991.25 772.537 991.249 952.506 991.249 819.567Z" fill="url(#paint0_linear_244_808)" fill-opacity="0.7"/>
+        <defs>
+          <linearGradient id="paint0_linear_244_808" x1="1003.35" y1="-61.5495" x2="253.453" y2="531.946" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#D68E6E"/>
+            <stop offset="1" stop-color="#D68E6E" stop-opacity="0.3"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- HEADER -->
+    <header class="w-full px-6 py-4 flex items-center justify-between relative">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="{% static 'img/logo.png' %}" alt="Logo" class="w-14 h-12 object-contain" />
+      </div>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex gap-10 text-[#242424]">
+        <a href="{% url 'home' %}" class="font-lora text-[18px] hover:text-[#D68D6D] transition ">Home</a>
+        <a href="{% url 'home' %}" class="font-lora text-[18px] hover:text-[#D68D6D] transition">Receitas</a>
+        <a href="{% url 'home' %}" class="font-lora text-[18px] hover:text-[#D68D6D] transition">Sobre</a>
+      </nav>
+
+      <!-- Botões Desktop -->
+      <div class="hidden md:flex gap-4 w-[250px]">
+        <a href="/cadastro" class="flex-1 font-lora text-center px-4 py-2 bg-[#FEFBFB] text-[#D68D6D] rounded-lg shadow text-[16px] hover:bg-[#F3ECEC] transition">
+          Cadastrar
+        </a>
+        <a href="/login" class="flex-1 font-lora text-center px-4 py-2 bg-[#D68E6E] text-[#FEFBFB] rounded-lg shadow text-[16px] hover:bg-[#cd8061] transition">
+          Login
+        </a>
+      </div>
+
+      <!-- Menu Mobile -->
+      <div class="md:hidden">
+        <button id="menuToggle" class="text-[#242424] focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Menu Mobile Dropdown -->
+    <div id="mobileMenu" class="md:hidden hidden flex-col items-center gap-4 p-4 bg-white shadow-lg border-b z-10">
+      <a href="#Home" class="font-loratext-[18px] text-[#242424] hover:text-[#D68D6D] ">Home</a>
+      <a href="#receitas" class="font-lora text-[18px] text-[#242424] hover:text-[#D68D6D]">Receitas</a>
+      <a href="#sobre" class="font-lora text-[18px] text-[#242424] hover:text-[#D68D6D]">Sobre</a>
+      <a href="/cadastro" class="font-lora text-[#D68D6D] hover:underline">Cadastrar</a>
+      <a href="/login" class="font-lora text-[#D68E6E] hover:underline">Login</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 mt-12 gap-10 min-h-[calc(100vh-100px)]">
+      <!-- Texto -->
+      <div class="max-w-xl text-center md:text-left">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#242424] leading-tight">
+          DESCUBRA AS MELHORES RECEITAS PARA QUALQUER OCASIÃO!
+        </h1>
+        <p class="mt-4 text-base md:text-lg text-[#242424]">
+          Mergulhe em uma seleção exclusiva de receitas surpreendentes, perfeitas para transformar cada refeição em uma experiência única.
+        </p>
+        <!-- <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          < <a href="{% url 'account/login' %}" class="px-6 py-2 bg-[#D68E6E] text-white rounded-lg shadow text-base md:text-lg hover:bg-[#c5775a] transition text-center w-[150px]">Cadastrar</a>
+          <a href="/login" class="text-sm md:text-base text-[#D68E6E] hover:underline text-center self-center">Já possui uma conta? Login</a>
+        </div>
+      </div> -->
+
+      <!-- Imagem -->
+      <div class="hidden md:block w-[250px] md:w-[350px] lg:w-[450px] flex-shrink-0">
+        <img src="{% static 'img/macarronhero.png' %}" alt="Prato com comida" class="w-full h-auto" />
+      </div>
+    </section>
+
+  </div> <!-- fim do wrapper -->
+
+  <!-- Script para menu mobile -->
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+</body>
+</html>
