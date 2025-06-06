@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Minhas Favoritas{% endblock %}
+{% block content %}
+<h1>Minhas Receitas Favoritas</h1>
+{% for receita in receitas %}
+    <div>
+        <h2>{{ receita.titulo }}</h2>
+        <p><strong>Por:</strong> {{ receita.autor.username }}</p>
+        <p>{{ receita.descricao }}</p>
+        <a href="{% url 'remover_favorito' receita.id %}">💔 Remover dos favoritos</a>
+        <hr>
+    </div>
+{% empty %}
+    <p>Você ainda não tem receitas favoritas.</p>
+{% endfor %}
+{% endblock %}

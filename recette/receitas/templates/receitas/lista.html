@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Receitas{% endblock %}
+{% block content %}
+<h1>Lista de Receitas</h1>
+<form method="get" action="{% url 'lista_receitas' %}">
+    <input type="text" name="q" placeholder="Buscar por título ou ingrediente..." value="{{ request.GET.q }}">
+    <button type="submit">🔍 Buscar</button>
+</form>
+{% for receita in receitas %}
+    <div>
+        <h2>{{ receita.titulo }}</h2>
+        <p><strong>Por:</strong> {{ receita.autor.username }}</p>
+        <p>{{ receita.descricao }}</p>
+        <p><strong>Ingredientes:</strong> 
+            {{ receita.ingredientes.all|join:", " }}
+        </p>
+        {% if user.is_authenticated %}
+            {% if receita in user.receitas_favoritas.all %}
+                <a href="{% url 'remover_favorito' receita.id %}">💔 Remover dos favoritos</a>
+            {% else %}
+                <a href="{% url 'adicionar_favorito' receita.id %}">❤️ Adicionar aos favoritos</a>
+            {% endif %}
+        {% endif %}
+        <hr>
+    </div>
+{% empty %}
+    <p>Nenhuma receita cadastrada.</p>
+{% endfor %}
+{% endblock %}
