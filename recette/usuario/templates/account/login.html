@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load allauth account %}
 {% load static %}
+{% load widget_tweaks %}
 
 
 <!DOCTYPE html>
@@ -10,9 +11,11 @@
     <meta charset="UTF-8">
     <title>{% block head_title %}{% endblock head_title %} - Recette</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
-<body class="bg-[#FFFAF8] min-h-screen flex flex-col">
+<body class="bg-[#FEFBFB] text-[#242424] min-h-screen flex flex-col">
 
    <header class="flex items-center justify-around mt-[20px] font-[Lora]">
         <div>
@@ -31,46 +34,64 @@
     
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
+
     {% block content %}
     <div class="min-h-screen flex flex-col justify-between bg-[#FFFAF8]">
 
-        <main class="flex items-center justify-center flex-1">
-            <div class="bg-[#FCFAF8] p-10 rounded-2xl shadow-md w-full max-w-md">
+        <section class="flex items-center justify-center flex-1 font-[Montserrat]">
+            <div class="bg-[#FAF8F6] p-10 rounded-2xl shadow-md w-full max-w-[600px]">
 
-                <h1 class="text-2xl font-bold text-center mb-6">Bem-vindo de volta</h1>
+                <p class="text-[28px] font-bold text-left mb-6">Bem-vindo de volta</p>
 
                 {% if not SOCIALACCOUNT_ONLY %}
                 {% url 'account_login' as login_url %}
                 <form method="post" action="{{ login_url }}" class="space-y-6">
                     {% csrf_token %}
-                    {{ form.as_p }}
-                    {{ redirect_field }}
-                    <button type="submit"
-                        class="w-full bg-[#D18667] hover:bg-[#c17658] text-white font-semibold py-2 rounded-md">
-                        Entrar
-                    </button>
-                </form>
+                <div>
+        <label for="{{ form.login.id_for_label }}" class="block font-semibold"></label>
+        {{ form.login|add_class:"w-full h-[48px] px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D68E6E] focus:border-transparent"|attr:"placeholder:Usuário" }}
+        {{ form.login.errors }}
+    </div>
+
+    <div>
+        <label for="{{ form.password.id_for_label }}" class="block font-semibold"></label>
+        {{ form.password|add_class:"w-full h-[48px] px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D68E6E] focus:border-transparent"|attr:"placeholder:Senha" }}
+        {{ form.password.errors }}
+    </div>
+
+    <div>
+        <a href="{% url 'account_reset_password' %}" class="text-sm text-[#D68E6E] hover:underline ml-[4px]">Esqueceu a senha?</a>
+    </div>
+
+   <div class="flex justify-center">
+      <button type="submit" class="w-[360px] h-[48px] font-[Lora] bg-[#D68E6E] hover:bg-[#cd8061] text-[#F7F7F7]  rounded-lg ">Entrar</button>
+                    </div>
+
+       <p class="text-sm ml-[8px]">Nao tem uma conta?
+              <a href="{% url 'account_signup' %}" class="text-sm text-[#D68E6E] hover:underline text-center">Cadastre-se</a>
+              </p>
                 {% endif %}
 
-                <div class="flex items-center justify-center my-4">
-                    <span class="text-gray-500 text-sm">Ou continue com</span>
-                </div>
-
-                <div class="flex justify-center space-x-6">
-                    <a href="/accounts/google/login/?process=login" class="p-2 rounded-full bg-white shadow-md">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png" class="h-6"
-                            alt="Google">
+                <p class="text-center text-sm text-gray-500 mt-6">Ou continue com:</p>
+                  <div class="flex justify-center space-x-6 mt-[16px]">
+                    <a href="/accounts/google/login/?process=signup" class="p-2 rounded-[4px] bg-[#F7F7F7] w-[120px] h-[56px] text-[#] shadow-sm flex justify-center">
+                      <i class="fa-brands fa-google text-[38px]"></i>
+                    </a>
+                    <a href="#" class="p-2 rounded-[4px] bg-[#F7F7F7] w-[120px] h-[56px] text-[#] shadow-sm flex justify-center">
+                      <i class="fa-brands fa-meta text-[38px]"></i>
+                    </a>
+                    <a href="#" class="p-2 rounded-[4px] bg-[#F7F7F7] w-[120px] h-[56px] text-[#] shadow-sm flex justify-center">
+                      <i class="fa-brands fa-apple text-[38px]"></i>
                     </a>
                 </div>
 
             </div>
-        </main>
+        </section>
 
     </div>
     {% endblock content %}
 
-<footer class="bg-[#242424] text-[#FEFBFB] text-sm">
+<footer class="bg-[#242424] text-[#FEFBFB] text-sm font-[Montserrat]">
     <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between">
 
       <div class="flex items-center space-x-2">

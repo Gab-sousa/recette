@@ -10,8 +10,10 @@
   <title>Recette</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body class="bg-[#FEFBFB] text-[#242424]">
+
     <header class="flex items-center justify-around mt-[20px] font-[Lora]">
         <div>
             <img class="w-[56px] object-contain" src="{%static 'img/Logo recette sntxt.png'%}" alt="logo header">
@@ -53,10 +55,11 @@
         <div class="flex justify-center md:justify-start mt-[8px]">
             <a href="{% url 'account_signup' %}" class="px-[32px] py-[8px] bg-[#D68D6D] text-white rounded-lg shadow text-base md:text-lg hover:bg-[#cd8061] transition text-center w-[220px] font-[Lora]">Cadastrar</a>
         </div>
-        <div class="flex flex-col sm:flex-row items-center gap-1 mt-[12px]">
-        <p class="text-sm">Já possui uma conta?</p>
+        
+        <p class="text-sm">Já possui uma conta?
         <a href="{% url 'account_login' %}" class="text-sm text-[#D68E6E] hover:underline text-center self-center">Login</a>
-         </div>
+        </p>
+         
         </div>
         
         <div class="hidden md:block w-[250px] md:w-[350px] lg:w-[450px] flex-shrink-0">
@@ -91,9 +94,143 @@
         </div>
             </div>
     </section>
+
+  <section class="px-6 py-12 -mt-12 font-[Montserrat]">
+    <div class="flex items-center justify-between ">
+      <p class="text-3xl font-semibold text-[#242424] mb-10">EXPLORE RECEITAS</p>
+      <a href="#" class="text-[#D68E6E] hover:underline font-medium mb-1">Ver mais</a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+        <div class="relative">
+          <img src="{% static 'img/waffle.png' %}" alt="Waffles com frutas" class="w-full h-48 object-cover" />
+          <button class="absolute top-3 right-3 bg-[#FEFBFB] p-1 rounded-[5px] shadow">
+            <svg class="w-5 h-5 text-[#242424]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 3v18l7-5 7 5V3z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="p-4">
+          <div class="flex items-center space-x-1 text-[#D68E6E] text-sm mb-2">
+            <span>★ ★ ★ ★ ☆</span>
+          </div>
+          <p class="text-[#242424] font-medium mb-4">Waffles com frutas</p>
+          <a href="#" class="block w-full text-center bg-[#242424] text-[#FEFBFB] py-2 rounded-lg hover:bg-[#3a2e2a] transition font-[Lora]">
+            Ver Receita Completa
+          </a>
+        </div>
+      </div>
+
+   <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+        <div class="relative">
+          <img src="{% static 'img/panqueca.png' %}" alt="Panqueca" class="w-full h-48 object-cover" />
+          <button class="absolute top-3 right-3 bg-[#FEFBFB] p-1 rounded-[5px] shadow">
+            <svg class="w-5 h-5 text-[#242424]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 3v18l7-5 7 5V3z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="p-4">
+          <div class="flex items-center space-x-1 text-[#D68E6E] text-sm mb-2">
+            <span>★ ★ ★ ★ ☆</span>
+          </div>
+          <p class="text-[#242424] font-medium mb-4">Panquecas com calda</p>
+          <a href="#" class="block w-full text-center bg-[#242424] text-[#FEFBFB] py-2 rounded-lg hover:bg-[#3a2e2a] transition font-[Lora]">
+            Ver Receita Completa
+          </a>
+        </div>
+      </div>
+
+       <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+        <div class="relative">
+          <img src="{% static 'img/Chocolate quente.png' %}" alt="Chocolate quente" class="w-full h-48 object-cover" />
+          <button class="absolute top-3 right-3 bg-[#FEFBFB] p-1 rounded-[5px] shadow">
+            <svg class="w-5 h-5 text-[#242424]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 3v18l7-5 7 5V3z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="p-4">
+          <div class="flex items-center space-x-1 text-[#D68E6E] text-sm mb-2">
+            <span>★ ★ ★ ★ ☆</span>
+          </div>
+          <p class="text-[#242424] font-medium mb-4">Chocolate quente cremoso</p>
+          <a href="#" class="block w-full text-center bg-[#242424] text-[#FEFBFB] py-2 rounded-lg hover:bg-[#3a2e2a] transition font-[Lora]">
+            Ver Receita Completa
+          </a>
+        </div>
+      </div> 
+
+       <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+        <div class="relative">
+          <img src="{% static 'img/Lasanha.png' %}" alt="Lasanha à bolonhesa" class="w-full h-48 object-cover" />
+          <button class="absolute top-3 right-3 bg-[#FEFBFB] p-1 rounded-[5px] shadow">
+            <svg class="w-5 h-5 text-[#242424]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 3v18l7-5 7 5V3z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="p-4">
+          <div class="flex items-center space-x-1 text-[#D68E6E] text-sm mb-2">
+            <span>★ ★ ★ ★ ☆</span>
+          </div>
+          <p class="text-[#242424] font-medium mb-4">Lasanha à bolonhesa</p>
+          <a href="#" class="block w-full text-center bg-[#242424] text-[#FEFBFB] py-2 rounded-lg hover:bg-[#3a2e2a] transition font-[Lora]">
+            Ver Receita Completa
+          </a>
+        </div>
+      </div>
+
+       <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+        <div class="relative">
+          <img src="{% static 'img/Fettuccine.png' %}" alt="Fettuccine" class="w-full h-48 object-cover" />
+          <button class="absolute top-3 right-3 bg-[#FEFBFB] p-1 rounded-[5px] shadow">
+            <svg class="w-5 h-5 text-[#242424]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 3v18l7-5 7 5V3z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="p-4">
+          <div class="flex items-center space-x-1 text-[#D68E6E] text-sm mb-2">
+            <span>★ ★ ★ ★ ☆</span>
+          </div>
+          <p class="text-[#242424] font-medium mb-4">Fettuccine com saborosa carbonara</p>
+          <a href="#" class="block w-full text-center bg-[#242424] text-[#FEFBFB] py-2 rounded-lg hover:bg-[#3a2e2a] transition font-[Lora]">
+            Ver Receita Completa
+          </a>
+        </div>
+      </div>
+
+       <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+        <div class="relative">
+          <img src="{% static 'img/Yakisoba.png' %}" alt="Yakisoba" class="w-full h-48 object-cover" />
+          <button class="absolute top-3 right-3 bg-[#FEFBFB] p-1 rounded-[5px] shadow">
+            <svg class="w-5 h-5 text-[#242424]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 3v18l7-5 7 5V3z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="p-4">
+          <div class="flex items-center space-x-1 text-[#D68E6E] text-sm mb-2">
+            <span>★ ★ ★ ★ ☆</span>
+          </div>
+          <p class="text-[#242424] font-medium mb-4">Yakisoba</p>
+          <a href="#" class="block w-full text-center bg-[#242424] text-[#FEFBFB] py-2 rounded-lg hover:bg-[#3a2e2a] transition font-[Lora]">
+            Ver Receita Completa
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+
+
 </div>
 
-<footer class="bg-[#242424] text-[#FEFBFB] text-sm">
+  <footer class="bg-[#242424] text-[#FEFBFB] text-sm font-[Montserrat]">
     <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between">
 
       <div class="flex items-center space-x-2">
@@ -109,10 +246,10 @@
   
 
       <div class="flex space-x-3">
-        <a href="#" class="text-white hover:text-gray-300">
+        <a href="#" class="text-[#FEFBFB] hover:text-gray-300">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="#" class="text-white hover:text-gray-300">
+        <a href="#" class="text-[#FEFBFB] hover:text-gray-300">
           <i class="fab fa-youtube"></i>
         </a>
       </div>
